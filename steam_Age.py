@@ -18,17 +18,24 @@ for a in soup.find_all('a',class_='app_tag'):
     if a:
         gameTagList.append(a.text.strip())  #遊戲Tag
 
-gamePrice = soup.select_one('div.game_purchase_price price') #價格
+gamePrice = soup.select_one('div.game_purchase_price') #價格
+gameLanguage=[]
+for a in soup.select('table.game_language_options>tr>td.ellipsis'):
+    if a :
+        gameLanguage.append(a.text.strip())
+
 
 data_List.append({'遊戲標題':gameName.text.strip()})
 data_List.append({'遊戲敘述':gameDescriptionSnippet.text.strip()})
 data_List.append({'遊戲Tag':gameTagList})
+data_List.append({'遊戲價格':gamePrice.text.strip()})
+data_List.append({'遊戲語言':gameLanguage})
         
 # print(f"遊戲標題:{gameName.text.strip()}")
 # print(f"遊戲敘述:{gameDescriptionSnippet.text.strip()}")
 # print(f"遊戲Tag:{gameTagList}")
 # print(f"遊戲價格:{gamePrice}")
-print(data_List)
+pprint(data_List)
 
 with open("output.json","w",encoding="utf-8")as f:
     json.dump(data_List, f,ensure_ascii=False,indent=4)
