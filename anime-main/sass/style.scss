@@ -1,0 +1,54 @@
+@import "variable";
+//元件主色系
+$primary-color: #370C8F;
+@import "mixins";
+
+@import "base";
+
+
+//背景顏色
+html,
+body {
+    background: #800080;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffc0cb, #800080);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffc0cb, #800080);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+
+
+@import "header";
+@import "hero";
+@import "product";
+@import "anime-details";
+@import "anime-watching";
+@import "breadcrumb";
+@import "blog";
+@import "blog-details";
+@import "login";
+@import "signup";
+@import "footer";
+
+.header__logo__2 {
+    width: 40px;
+    margin-right: 10px;
+
+}
+
+.logo__setting {
+    display: flex;
+    align-items: center;
+}
+
+.logo__setting .SREAMNEXUS {
+    font-size: 21px;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+@import "responsive";
