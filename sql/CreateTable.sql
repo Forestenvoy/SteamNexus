@@ -179,3 +179,41 @@ CREATE TABLE PlayersHistory
     -- 遊玩人數
     Players int NOT NULL
 )
+
+-- 會員資料表
+CREATE TABLE Members
+(
+    MemberID int NOT NULL PRIMARY KEY IDENTITY(10000,1),
+    -- 會員帳號 = 信箱
+    Email NVARCHAR(100) NOT NULL UNIQUE,
+    -- 會員密碼
+    Password NVARCHAR(100) NOT NULL,
+    -- 名稱
+    Name NVARCHAR(100),
+    -- 性別
+    Gender bit DEFAULT 0,
+    -- 電話
+    Phone NVARCHAR(100),
+    -- 生日
+    Birthday DATE DEFAULT '1900-01-01',
+    -- 大頭照
+    Photo NVARCHAR(300),
+    -- 會員的 CPU
+    CPUID int NOT NULL DEFAULT 10000,
+    -- 會員的 GPU
+    GPUID int NOT NULL DEFAULT 10000,
+    -- 會員的 RAM
+    RAM int NOT NULL DEFAULT 4
+)
+
+-- 遊戲追蹤表
+CREATE TABLE GameFollows
+(
+    GameFollowID int NOT NULL PRIMARY KEY IDENTITY(10000,1),
+    -- 會員ID，外來鍵
+    MemberID int NOT NULL,
+    -- 遊戲ID，外來鍵
+    GameID int NOT NULL,
+    -- 追蹤時間，預設現在時間
+    FollowTime DATETIME DEFAULT GETDATE()
+)

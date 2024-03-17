@@ -4,6 +4,8 @@ USE SteamNexus;
 
 -- 有關聯就會有刪除順序問題 !! 從後面開始刪除
 
+DROP TABLE GameFollows;
+DROP TABLE Members;
 DROP TABLE PlayersHistory;
 DROP TABLE PriceHistory;
 DROP TABLE TagGroups;
