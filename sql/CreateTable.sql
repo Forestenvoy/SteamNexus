@@ -116,6 +116,10 @@ CREATE TABLE Games
     LowestPrice int NOT NULL,
     -- 遊戲分級
     AgeRating NVARCHAR(100) NOT NULL,
+    -- 遊戲評論
+    Comment NVARCHAR(100),
+    -- 評論數量
+    CommentNum int DEFAULT 0,
     -- 發行日期
     ReleaseDate DATETIME,
     -- 發行商
